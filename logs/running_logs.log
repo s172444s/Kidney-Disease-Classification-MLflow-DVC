@@ -389,3 +389,186 @@ mlflow.exceptions.MlflowException: API request to endpoint /api/2.0/mlflow/runs/
 [2023-11-14 21:14:26,888: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
 
 x==========x]
+[2023-11-14 21:32:05,826: INFO: stage_02_prepare_base_model: *******************]
+[2023-11-14 21:32:05,827: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2023-11-14 21:32:05,841: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2023-11-14 21:32:05,845: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-14 21:32:05,848: INFO: common: created directory at: artifacts]
+[2023-11-14 21:32:05,852: INFO: common: created directory at: artifacts/prepare_base_model]
+[2023-11-14 21:32:06,352: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-14 21:32:06,704: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2023-11-14 21:36:35,881: INFO: stage_03_model_training: *******************]
+[2023-11-14 21:36:35,882: INFO: stage_03_model_training: >>>>>> stage Training started <<<<<<]
+[2023-11-14 21:36:35,889: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2023-11-14 21:36:35,930: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-14 21:36:35,936: INFO: common: created directory at: artifacts]
+[2023-11-14 21:36:35,945: INFO: common: created directory at: artifacts/training]
+[2023-11-14 21:48:09,629: INFO: stage_03_model_training: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2023-11-14 21:53:30,257: INFO: stage_04_model_evaluation: *******************]
+[2023-11-14 21:53:30,264: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2023-11-14 21:53:30,288: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2023-11-14 21:53:30,294: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-14 21:53:30,305: INFO: common: created directory at: artifacts]
+[2023-11-14 21:57:12,625: INFO: common: json file saved at: scores.json]
+[2023-11-14 21:57:12,636: INFO: common: json file saved at: scores.json]
+[2023-11-14 21:57:20,368: ERROR: stage_04_model_evaluation: API request to endpoint /api/2.0/mlflow/runs/log-batch failed with error code 400 != 200. Response body: '"repo not associated with run"']
+Traceback (most recent call last):
+  File "src/cnnClassifier/pipeline/stage_04_model_evaluation.py", line 30, in <module>
+    obj.main()
+  File "src/cnnClassifier/pipeline/stage_04_model_evaluation.py", line 20, in main
+    evaluation.log_into_mlflow()
+  File "/mnt/c/Users/vahid/Downloads/Kidney-Disease-Classification-MLflow-DVC/src/cnnClassifier/components/model_evaluation_mlflow.py", line 62, in log_into_mlflow
+    mlflow.log_metrics(
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/tracking/fluent.py", line 677, in log_metrics
+    MlflowClient().log_batch(run_id=run_id, metrics=metrics_arr, params=[], tags=[])
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/tracking/client.py", line 986, in log_batch
+    self._tracking_client.log_batch(run_id, metrics, params, tags)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/tracking/_tracking_service/client.py", line 394, in log_batch
+    self.store.log_batch(run_id=run_id, metrics=metrics_batch, params=[], tags=[])
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/store/tracking/rest_store.py", line 321, in log_batch
+    self._call_endpoint(LogBatch, req_body)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/store/tracking/rest_store.py", line 56, in _call_endpoint
+    return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/utils/rest_utils.py", line 281, in call_endpoint
+    response = verify_rest_response(response, endpoint)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/utils/rest_utils.py", line 213, in verify_rest_response
+    raise MlflowException(
+mlflow.exceptions.MlflowException: API request to endpoint /api/2.0/mlflow/runs/log-batch failed with error code 400 != 200. Response body: '"repo not associated with run"'
+[2023-11-15 08:35:30,938: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.26.5.133:8080]
+[2023-11-15 08:35:30,940: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2023-11-15 08:35:48,277: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 08:35:48] "GET / HTTP/1.1" 200 -]
+[2023-11-15 08:36:29,621: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask_cors/decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+  File "/mnt/c/Users/vahid/Downloads/Kidney-Disease-Classification-MLflow-DVC/src/cnnClassifier/pipeline/prediction.py", line 16, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/saving/saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/saving/legacy/save.py", line 230, in load_model
+    raise IOError(
+OSError: No file or directory found at model/model.h5
+[2023-11-15 08:36:29,642: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 08:36:29] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2023-11-15 08:40:00,384: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 08:40:00] "GET / HTTP/1.1" 200 -]
+[2023-11-15 08:40:08,029: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask_cors/decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+  File "/mnt/c/Users/vahid/Downloads/Kidney-Disease-Classification-MLflow-DVC/src/cnnClassifier/pipeline/prediction.py", line 16, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/saving/saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/saving/legacy/save.py", line 230, in load_model
+    raise IOError(
+OSError: No file or directory found at model/model.h5
+[2023-11-15 08:40:08,038: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 08:40:08] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2023-11-15 08:42:58,975: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.26.5.133:8080]
+[2023-11-15 08:42:58,976: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2023-11-15 08:43:04,429: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 08:43:04] "GET / HTTP/1.1" 200 -]
+[2023-11-15 08:43:13,665: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 08:43:13] "GET / HTTP/1.1" 200 -]
+[2023-11-15 08:43:31,185: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask_cors/decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+  File "/mnt/c/Users/vahid/Downloads/Kidney-Disease-Classification-MLflow-DVC/src/cnnClassifier/pipeline/prediction.py", line 16, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/saving/saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/saving/legacy/save.py", line 230, in load_model
+    raise IOError(
+OSError: No file or directory found at model/model.h5
+[2023-11-15 08:43:31,215: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 08:43:31] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2023-11-15 08:54:50,021: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.26.5.133:8080]
+[2023-11-15 08:54:50,022: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2023-11-15 08:55:05,780: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 08:55:05] "GET / HTTP/1.1" 200 -]
+[2023-11-15 08:55:13,416: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/flask_cors/decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+  File "/mnt/c/Users/vahid/Downloads/Kidney-Disease-Classification-MLflow-DVC/src/cnnClassifier/pipeline/prediction.py", line 16, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/saving/saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/keras/saving/legacy/save.py", line 230, in load_model
+    raise IOError(
+OSError: No file or directory found at model/model.h5
+[2023-11-15 08:55:13,445: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 08:55:13] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2023-11-15 09:00:22,831: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.26.5.133:8080]
+[2023-11-15 09:00:22,832: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2023-11-15 09:00:26,260: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 09:00:26] "GET / HTTP/1.1" 200 -]
+[2023-11-15 09:00:35,038: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 09:00:35] "POST /predict HTTP/1.1" 200 -]
+[2023-11-15 09:00:59,087: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 09:00:59] "POST /predict HTTP/1.1" 200 -]
+[2023-11-15 09:01:10,797: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 09:01:10] "POST /predict HTTP/1.1" 200 -]
+[2023-11-15 09:01:21,889: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 09:01:21] "POST /predict HTTP/1.1" 200 -]
