@@ -694,3 +694,102 @@ x==========x]
 [2023-11-15 10:51:09,566: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 10:51:09] "GET / HTTP/1.1" 200 -]
 [2023-11-15 11:00:56,909: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 11:00:56] "POST /predict HTTP/1.1" 200 -]
 [2023-11-15 11:01:12,356: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 11:01:12] "POST /predict HTTP/1.1" 200 -]
+[2023-11-15 11:14:44,934: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2023-11-15 11:14:44,935: INFO: main: *******************]
+[2023-11-15 11:14:44,935: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2023-11-15 11:14:44,943: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2023-11-15 11:14:44,953: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-15 11:14:44,957: INFO: common: created directory at: artifacts]
+[2023-11-15 11:18:35,322: INFO: common: json file saved at: scores.json]
+[2023-11-15 11:18:35,331: INFO: common: json file saved at: scores.json]
+[2023-11-15 11:18:37,145: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2023-11-15 11:18:37,502: INFO: builder_impl: Assets written to: /tmp/tmp8ijzuuyq/model/data/model/assets]
+[2023-11-15 11:19:11,967: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2023-11-15 11:19:12,503: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 11:19:12] "GET /train HTTP/1.1" 200 -]
+[2023-11-15 11:20:36,076: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2023-11-15 11:20:36,086: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2023-11-15 11:20:36,093: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-15 11:20:36,099: INFO: common: created directory at: artifacts]
+[2023-11-15 11:20:36,107: INFO: common: created directory at: artifacts/data_ingestion]
+[2023-11-15 11:20:36,115: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/190su2R9ED-uC4x5qgwaqAtSZk1qTEDzh/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2023-11-15 11:21:00,220: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/190su2R9ED-uC4x5qgwaqAtSZk1qTEDzh/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2023-11-15 11:23:33,394: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2023-11-15 11:23:33,395: INFO: main: *******************]
+[2023-11-15 11:23:33,396: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2023-11-15 11:23:33,402: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2023-11-15 11:23:33,409: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-15 11:23:33,413: INFO: common: created directory at: artifacts]
+[2023-11-15 11:23:33,419: INFO: common: created directory at: artifacts/prepare_base_model]
+[2023-11-15 11:23:33,852: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-15 11:23:34,565: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2023-11-15 11:23:34,566: INFO: main: *******************]
+[2023-11-15 11:23:34,567: INFO: main: >>>>>> stage Training started <<<<<<]
+[2023-11-15 11:23:34,575: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2023-11-15 11:23:34,585: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-15 11:23:34,593: INFO: common: created directory at: artifacts]
+[2023-11-15 11:23:34,605: INFO: common: created directory at: artifacts/training]
+[2023-11-15 11:34:58,786: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 11:34:58] "GET /train HTTP/1.1" 200 -]
+[2023-11-15 11:35:17,739: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.26.5.133:8080]
+[2023-11-15 11:35:17,739: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2023-11-15 11:54:42,060: INFO: stage_04_model_evaluation: *******************]
+[2023-11-15 11:54:42,064: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2023-11-15 11:54:42,072: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2023-11-15 11:54:42,080: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-15 11:54:42,086: INFO: common: created directory at: artifacts]
+[2023-11-15 11:56:03,314: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 11:56:03] "POST /predict HTTP/1.1" 200 -]
+[2023-11-15 11:58:15,347: INFO: common: json file saved at: scores.json]
+[2023-11-15 11:58:15,358: INFO: common: json file saved at: scores.json]
+[2023-11-15 11:58:21,536: ERROR: stage_04_model_evaluation: API request to endpoint /api/2.0/mlflow/runs/log-batch failed with error code 400 != 200. Response body: '"repo not associated with run"']
+Traceback (most recent call last):
+  File "src/cnnClassifier/pipeline/stage_04_model_evaluation.py", line 30, in <module>
+    obj.main()
+  File "src/cnnClassifier/pipeline/stage_04_model_evaluation.py", line 20, in main
+    evaluation.log_into_mlflow()
+  File "/mnt/c/Users/vahid/Downloads/Kidney-Disease-Classification-MLflow-DVC/src/cnnClassifier/components/model_evaluation_mlflow.py", line 61, in log_into_mlflow
+    mlflow.log_params(self.config.all_params)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/tracking/fluent.py", line 702, in log_params
+    MlflowClient().log_batch(run_id=run_id, metrics=[], params=params_arr, tags=[])
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/tracking/client.py", line 986, in log_batch
+    self._tracking_client.log_batch(run_id, metrics, params, tags)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/tracking/_tracking_service/client.py", line 389, in log_batch
+    self.store.log_batch(
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/store/tracking/rest_store.py", line 321, in log_batch
+    self._call_endpoint(LogBatch, req_body)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/store/tracking/rest_store.py", line 56, in _call_endpoint
+    return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/utils/rest_utils.py", line 281, in call_endpoint
+    response = verify_rest_response(response, endpoint)
+  File "/home/vahid/miniconda3/envs/kidney/lib/python3.8/site-packages/mlflow/utils/rest_utils.py", line 213, in verify_rest_response
+    raise MlflowException(
+mlflow.exceptions.MlflowException: API request to endpoint /api/2.0/mlflow/runs/log-batch failed with error code 400 != 200. Response body: '"repo not associated with run"'
+[2023-11-15 11:58:22,370: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 11:58:22] "GET /train HTTP/1.1" 200 -]
+[2023-11-15 11:59:35,771: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.26.5.133:8080]
+[2023-11-15 11:59:35,772: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2023-11-15 12:10:11,002: INFO: stage_04_model_evaluation: *******************]
+[2023-11-15 12:10:11,005: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2023-11-15 12:10:11,015: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2023-11-15 12:10:11,024: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-15 12:10:11,030: INFO: common: created directory at: artifacts]
+[2023-11-15 12:13:47,353: INFO: common: json file saved at: scores.json]
+[2023-11-15 12:13:47,380: INFO: common: json file saved at: scores.json]
+[2023-11-15 12:14:04,022: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2023-11-15 12:14:04,362: INFO: builder_impl: Assets written to: /tmp/tmpizaohzme/model/data/model/assets]
+[2023-11-15 12:14:26,823: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2023-11-15 12:17:19,502: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 12:17:19] "GET /train HTTP/1.1" 200 -]
+[2023-11-15 12:26:27,297: INFO: _internal: 127.0.0.1 - - [15/Nov/2023 12:26:27] "GET /train HTTP/1.1" 200 -]
